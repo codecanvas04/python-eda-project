@@ -1,0 +1,90 @@
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:#09090d;color:#f4f2f8;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.navbar{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;border-bottom:1px solid rgba(255,255,255,.07);position:sticky;top:0;background:rgba(9,9,13,.88);backdrop-filter:blur(20px);z-index:10}
+.logo{font-size:20px;font-weight:700;letter-spacing:-1px}
+.nav-links{display:flex;gap:32px;font-size:13px;color:#9997a5}
+.nav-links a:hover{color:#fff}
+.hero{min-height:700px;padding:100px 7%;display:flex;align-items:center;justify-content:space-between;overflow:hidden}
+.hero-content{max-width:680px}
+.eyebrow{font-size:11px;letter-spacing:3px;color:#a77cff;font-weight:700;margin-bottom:20px}
+h1{font-size:clamp(48px,7vw,86px);line-height:1.02;letter-spacing:-5px}
+h1 span,h2 span{background:linear-gradient(90deg,#a77cff,#ff72c9);-webkit-background-clip:text;color:transparent}
+.hero-text{max-width:560px;color:#92909d;margin:28px 0;font-size:16px}
+.hero-button,.primary-btn{display:inline-flex;padding:13px 21px;border-radius:10px;background:#f4f2f8;color:#111;font-size:13px;font-weight:700;transition:.2s}
+.hero-button:hover,.primary-btn:hover{transform:translateY(-2px)}
+.hero-visual{width:420px;height:420px;position:relative;display:flex;align-items:center;justify-content:center}
+.music-circle{width:190px;height:190px;border-radius:50%;background:linear-gradient(135deg,#a77cff,#ff72c9);display:flex;align-items:center;justify-content:center;box-shadow:0 0 100px rgba(167,124,255,.3)}
+.circle-inner{width:145px;height:145px;border-radius:50%;background:#111117;display:flex;align-items:center;justify-content:center;font-size:60px}
+.orbit{position:absolute;border:1px solid rgba(167,124,255,.25);border-radius:50%}
+.orbit-one{width:310px;height:310px}
+.orbit-two{width:410px;height:410px}
+.floating-card{position:absolute;background:#17171e;border:1px solid rgba(255,255,255,.09);padding:9px 14px;border-radius:9px;font-size:11px;color:#c6c3d0}
+.card-one{top:60px;right:0}
+.card-two{bottom:75px;left:0}
+.card-three{bottom:25px;right:20px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);padding:28px 7%}
+.stat{display:flex;flex-direction:column;align-items:center}
+.stat strong{font-size:26px}
+.stat span{font-size:11px;color:#777580}
+.features,.discover,.dna-section,.mood-section,.gems-section,.evolution-section,.compare-section,.about{padding:110px 7%}
+.section-heading{max-width:700px;margin-bottom:50px}
+.section-heading h2,h2{font-size:clamp(32px,4vw,52px);letter-spacing:-2px;line-height:1.1}
+.section-heading>p:last-child,.about>p:last-child{color:#85838f;margin-top:15px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feature-card{padding:28px;border:1px solid rgba(255,255,255,.07);background:#0f0f15;border-radius:15px;min-height:230px;transition:.25s}
+.feature-card:hover{transform:translateY(-5px);border-color:rgba(167,124,255,.35)}
+.feature-number{font-size:11px;color:#686672}
+.feature-icon{font-size:25px;margin:30px 0 12px;color:#b184ff}
+.feature-card h3{font-size:16px}
+.feature-card p{font-size:13px;color:#7e7c88;margin-top:8px}
+.discover{background:#0d0d13}
+.discover-box{max-width:900px;margin:auto}
+.discover-box>p{color:#83818e;margin:12px 0 30px}
+.search-box,.compare-inputs{display:flex;gap:10px}
+.search-box input,.compare-inputs input{flex:1;background:#15151c;border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:15px 17px;color:#fff;outline:none;font-family:inherit}
+.search-box input:focus,.compare-inputs input:focus{border-color:#9d73ff}
+.search-box button,.compare-inputs button,.mood-buttons button{border:0;background:#f3f1f7;color:#111;border-radius:10px;padding:0 23px;font-weight:700;cursor:pointer}
+.results{margin-top:30px}
+.result{display:flex;align-items:center;justify-content:space-between;padding:19px 5px;border-bottom:1px solid rgba(255,255,255,.07)}
+.result:hover{background:rgba(255,255,255,.025);padding-left:12px;padding-right:12px;border-radius:9px}
+.result strong{display:block;font-size:14px}
+.result-info span{font-size:12px;color:#777580}
+.result-score{color:#a77cff;font-size:12px;font-weight:700}
+.dna-section{background:#0a0a0f}
+.dna-search{display:flex;gap:10px;max-width:700px;margin:30px 0}
+.dna-search input{flex:1;background:#15151c;border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:15px;color:#fff}
+.dna-search button{padding:0 23px;border:0;border-radius:10px;font-weight:700}
+.dna-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1000px}
+.dna-card{background:#121219;border:1px solid rgba(255,255,255,.07);padding:22px;border-radius:13px}
+.dna-card span{display:block;color:#777580;font-size:12px}
+.dna-card strong{font-size:27px;display:block;margin:8px 0}
+.dna-bar{height:4px;background:#292830;border-radius:5px;overflow:hidden}
+.dna-bar div{height:100%;background:linear-gradient(90deg,#a77cff,#ff72c9)}
+.mood-buttons{display:flex;flex-wrap:wrap;gap:10px;margin:35px 0}
+.mood-buttons button{padding:12px 18px;cursor:pointer}
+.mood-buttons button:hover{background:#a77cff;color:#fff}
+.gems-section,.evolution-section,.compare-section{max-width:1200px;margin:auto}
+.page-header{max-width:700px;margin-bottom:45px}
+.page-header h1{font-size:clamp(42px,6vw,70px);letter-spacing:-4px}
+.page-header p{color:#85838f;margin-top:15px}
+.table{width:100%;border-collapse:collapse;margin-top:30px}
+.table th,.table td{text-align:left;padding:16px;border-bottom:1px solid rgba(255,255,255,.07);font-size:13px}
+.table th{color:#777580;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.compare-inputs{max-width:850px;margin:30px 0}
+.compare-result{margin-top:40px}
+.compare-header{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.compare-song{background:#121219;padding:25px;border-radius:14px;border:1px solid rgba(255,255,255,.07)}
+.compare-song h3{font-size:20px}
+.compare-song p{font-size:12px;color:#777580}
+.compare-feature{margin:22px 0}
+.compare-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:7px;color:#aaa8b4}
+.compare-bars{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.bar{height:7px;background:#292830;border-radius:5px;overflow:hidden}
+.bar div{height:100%;background:linear-gradient(90deg,#a77cff,#ff72c9)}
+.about{max-width:850px}
+.about h2{margin-bottom:15px}
+footer{border-top:1px solid rgba(255,255,255,.07);padding:30px 7%;display:flex;justify-content:space-between;color:#686672;font-size:11px}
+@media(max-width:800px){.nav-links{display:none}.hero{padding-top:70px;min-height:auto;flex-direction:column;align-items:flex-start;gap:70px}.hero-visual{width:100%;height:330px}.music-circle{width:140px;height:140px}.circle-inner{width:105px;height:105px;font-size:45px}.orbit-one{width:230px;height:230px}.orbit-two{width:300px;height:300px}.stats{grid-template-columns:repeat(2,1fr);gap:25px}.feature-grid{grid-template-columns:1fr}.dna-grid{grid-template-columns:repeat(2,1fr)}.compare-header{grid-template-columns:1fr}.compare-inputs{flex-direction:column}.compare-inputs button{height:45px}.search-box{flex-direction:column}.search-box button{height:45px}.dna-search{flex-direction:column}.dna-search button{height:45px}footer{flex-direction:column;gap:10px}}
+@media(max-width:480px){h1{letter-spacing:-3px}.features,.discover,.dna-section,.mood-section,.gems-section,.evolution-section,.compare-section,.about{padding:75px 6%}.dna-grid{grid-template-columns:1fr}.floating-card{font-size:9px}.card-one{right:0}.card-two{left:0}}

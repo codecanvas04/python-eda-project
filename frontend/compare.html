@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Song vs Song · Music Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+<a href="index.html" class="logo">music lab.</a>
+<div class="nav-links">
+<a href="recommendations.html">Discover</a>
+<a href="dna.html">Music DNA</a>
+<a href="mood.html">Mood</a>
+<a href="compare.html">Compare</a>
+</div>
+</nav>
+
+<main>
+<section class="compare-section">
+<div class="page-header">
+<p class="eyebrow">06 · SONG VS SONG</p>
+<h1>Which song<br><span>wins?</span></h1>
+<p>Put two songs head-to-head and see how their musical personalities compare.</p>
+</div>
+
+<div class="compare-inputs">
+<input id="song1" type="text" placeholder="First song">
+<input id="song2" type="text" placeholder="Second song">
+<button onclick="compareSongs()">Compare</button>
+</div>
+
+<div id="compareResults" class="compare-result"></div>
+</section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
