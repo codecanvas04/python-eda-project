@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:5000";
+const API = "https://music-lab-backend-v21n.onrender.com";
 
 function showMessage(element, message) {
     element.innerHTML = `<p>${message}</p>`;
