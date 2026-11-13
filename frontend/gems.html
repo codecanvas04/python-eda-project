@@ -3,38 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10110f">
 <title>Hidden Gems · Music Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
 <nav class="navbar">
-<a href="index.html" class="logo">music lab.</a>
+<a class="logo" href="index.html">music<span>lab</span><i>.</i></a>
 <div class="nav-links">
+<a href="index.html#features">Explore</a>
 <a href="recommendations.html">Discover</a>
 <a href="dna.html">Music DNA</a>
-<a href="mood.html">Mood</a>
+<a href="mood.html">Mood Map</a>
 <a href="compare.html">Compare</a>
 </div>
+<a class="nav-cta" href="recommendations.html">Find a track ↗</a>
 </nav>
-
 <main>
-<section class="gems-section">
-<div class="page-header">
-<p class="eyebrow">04 · HIDDEN GEMS</p>
-<h1>Good music<br><span>doesn't need hype.</span></h1>
-<p>Explore songs with interesting musical characteristics that haven't reached massive popularity.</p>
+<section class="tool-page">
+<a class="back-link" href="index.html#features">← &nbsp; ALL FEATURES</a>
+<header class="page-header">
+<p class="eyebrow"><i></i>04 / HIDDEN GEMS</p>
+<h1>Good music<br><em>flies under the radar.</em></h1>
+<p class="page-intro">Not every great track has millions of plays. Explore lesser-known songs that deserve a spot on your playlist.</p>
+</header>
+<div class="action-panel">
+<div>
+<div class="panel-label"><b>04</b> THE DEEP CUTS</div>
+<p>A little less obvious. A lot more interesting.</p>
 </div>
-
-<button class="primary-btn" onclick="loadGems()">Find hidden gems</button>
-
-<div id="gemsResults"></div>
+<button class="button lime" onclick="loadGems()">Uncover hidden gems ↗</button>
+</div>
+<div class="results-wrap">
+<div class="results-heading"><span>OFF THE RADAR</span><span class="mono">WORTH A LISTEN</span></div>
+<div id="gemsResults" class="results"></div>
+</div>
 </section>
 </main>
-
+<footer class="site-footer">
+<a class="footer-brand" href="index.html">music<span>lab</span><i>.</i></a>
+<span>MADE FOR THE LOVE OF LISTENING</span>
+<a href="index.html#features">BACK TO THE LAB ↑</a>
+</footer>
 <script src="script.js"></script>
 </body>
 </html>

@@ -3,41 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10110f">
 <title>Music DNA · Music Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
 <nav class="navbar">
-<a href="index.html" class="logo">music lab.</a>
+<a class="logo" href="index.html">music<span>lab</span><i>.</i></a>
 <div class="nav-links">
+<a href="index.html#features">Explore</a>
 <a href="recommendations.html">Discover</a>
 <a href="dna.html">Music DNA</a>
-<a href="mood.html">Mood</a>
+<a href="mood.html">Mood Map</a>
 <a href="compare.html">Compare</a>
 </div>
+<a class="nav-cta" href="recommendations.html">Find a track ↗</a>
 </nav>
-
 <main>
-<section class="dna-section">
-<div class="page-header">
-<p class="eyebrow">02 · MUSIC DNA</p>
-<h1>Every song has<br><span>a personality.</span></h1>
-<p>See what makes your favourite song sound the way it does.</p>
+<section class="tool-page">
+<a class="back-link" href="index.html#features">← &nbsp; ALL FEATURES</a>
+<header class="page-header">
+<p class="eyebrow"><i></i>02 / MUSIC DNA</p>
+<h1>Every song has<br><em>a personality.</em></h1>
+<p class="page-intro">A song is more than a title and an artist. Break down the musical ingredients that give it its character.</p>
+</header>
+<div class="tool-panel">
+<div class="panel-label"><b>02</b> CHOOSE A TRACK TO ANALYSE</div>
+<div class="search-box">
+<label class="sr-only" for="dnaInput">Enter a song</label>
+<input id="dnaInput" placeholder="Try “Blinding Lights”">
+<button class="button lime" onclick="getDNA()">Read its DNA ↗</button>
 </div>
-
-<div class="dna-search">
-<input id="dnaInput" type="text" placeholder="Try “Blinding Lights”">
-<button onclick="getDNA()">Analyze</button>
+<p class="hint">SIX DIMENSIONS. ONE MUSICAL FINGERPRINT.</p>
 </div>
-
+<div class="results-wrap">
+<div class="results-heading"><span>THE SOUND PROFILE</span><span class="mono">A TRACK'S INNER MAKEUP</span></div>
 <div id="dnaResults" class="dna-grid"></div>
+</div>
 </section>
 </main>
-
+<footer class="site-footer">
+<a class="footer-brand" href="index.html">music<span>lab</span><i>.</i></a>
+<span>MADE FOR THE LOVE OF LISTENING</span>
+<a href="index.html#features">BACK TO THE LAB ↑</a>
+</footer>
 <script src="script.js"></script>
 </body>
 </html>

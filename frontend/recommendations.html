@@ -3,41 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10110f">
 <title>Smart Recommendations · Music Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
 <nav class="navbar">
-<a href="index.html" class="logo">music lab.</a>
+<a class="logo" href="index.html">music<span>lab</span><i>.</i></a>
 <div class="nav-links">
+<a href="index.html#features">Explore</a>
 <a href="recommendations.html">Discover</a>
 <a href="dna.html">Music DNA</a>
-<a href="mood.html">Mood</a>
+<a href="mood.html">Mood Map</a>
 <a href="compare.html">Compare</a>
 </div>
+<a class="nav-cta" href="recommendations.html">Find a track ↗</a>
 </nav>
-
 <main>
-<section class="discover">
-<div class="page-header">
-<p class="eyebrow">01 · SMART DISCOVERY</p>
-<h1>Find your<br><span>next song.</span></h1>
-<p>Enter a song you love. Music Lab compares its musical characteristics with thousands of tracks and finds the closest matches.</p>
-</div>
-
+<section class="tool-page">
+<a class="back-link" href="index.html#features">← &nbsp; ALL FEATURES</a>
+<header class="page-header">
+<p class="eyebrow"><i></i>01 / SMART DISCOVERY</p>
+<h1>Find your next<br><em>on-repeat.</em></h1>
+<p class="page-intro">Start with a song you love. We'll look for tracks with a similar musical fingerprint across the collection.</p>
+</header>
+<div class="tool-panel">
+<div class="panel-label"><b>01</b> THE STARTING POINT</div>
 <div class="search-box">
-<input id="songInput" type="text" placeholder="Try “Shape Of You”">
-<button onclick="discoverSong()">Discover</button>
+<label class="sr-only" for="songInput">Enter a song</label>
+<input id="songInput" placeholder="Try “Shape Of You”">
+<button class="button lime" onclick="discoverSong()">Find matches ↗</button>
 </div>
-
+<p class="hint">TYPE A TRACK NAME TO GET STARTED</p>
+</div>
+<div class="results-wrap">
+<div class="results-heading"><span>YOUR DISCOVERY LIST</span><span class="mono">MATCHES / 01—10</span></div>
 <div id="results" class="results"></div>
+</div>
 </section>
 </main>
-
+<footer class="site-footer">
+<a class="footer-brand" href="index.html">music<span>lab</span><i>.</i></a>
+<span>MADE FOR THE LOVE OF LISTENING</span>
+<a href="index.html#features">BACK TO THE LAB ↑</a>
+</footer>
 <script src="script.js"></script>
 </body>
 </html>

@@ -3,43 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10110f">
 <title>Mood Map · Music Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
 <nav class="navbar">
-<a href="index.html" class="logo">music lab.</a>
+<a class="logo" href="index.html">music<span>lab</span><i>.</i></a>
 <div class="nav-links">
+<a href="index.html#features">Explore</a>
 <a href="recommendations.html">Discover</a>
 <a href="dna.html">Music DNA</a>
-<a href="mood.html">Mood</a>
+<a href="mood.html">Mood Map</a>
 <a href="compare.html">Compare</a>
 </div>
+<a class="nav-cta" href="recommendations.html">Find a track ↗</a>
 </nav>
-
 <main>
-<section class="mood-section">
-<div class="page-header">
-<p class="eyebrow">03 · MOOD MAP</p>
-<h1>How are you<br><span>feeling?</span></h1>
-<p>Choose a mood and Music Lab will build a soundtrack from the dataset.</p>
-</div>
-
+<section class="tool-page">
+<a class="back-link" href="index.html#features">← &nbsp; ALL FEATURES</a>
+<header class="page-header">
+<p class="eyebrow"><i></i>03 / MOOD MAP</p>
+<h1>What's the<br><em>feeling today?</em></h1>
+<p class="page-intro">Some days call for a little more energy. Others need something softer. Pick a mood and find the music that fits.</p>
+</header>
+<div class="mood-picker">
+<div class="panel-label"><b>03</b> PICK YOUR CURRENT FREQUENCY</div>
 <div class="mood-buttons">
-<button onclick="getMood('Energetic & Happy')">Energetic & Happy</button>
-<button onclick="getMood('Energetic & Intense')">Energetic & Intense</button>
-<button onclick="getMood('Calm & Happy')">Calm & Happy</button>
-<button onclick="getMood('Calm & Melancholic')">Calm & Melancholic</button>
+<button class="mood-choice yellow" onclick="getMood('happy')"><span>☀</span><div><b>Happy</b><small>BRIGHT / UPBEAT</small></div><i>↗</i></button>
+<button class="mood-choice red" onclick="getMood('energetic')"><span>✳</span><div><b>Energetic</b><small>HIGH ENERGY / BOLD</small></div><i>↗</i></button>
+<button class="mood-choice blue" onclick="getMood('calm')"><span>☁</span><div><b>Calm</b><small>SOFT / UNHURRIED</small></div><i>↗</i></button>
+<button class="mood-choice lilac" onclick="getMood('sad')"><span>☾</span><div><b>Melancholic</b><small>REFLECTIVE / LOW KEY</small></div><i>↗</i></button>
 </div>
-
+</div>
+<div class="results-wrap">
+<div class="results-heading"><span>YOUR MOOD SOUNDTRACK</span><span class="mono">A FEELING, IN TRACKS</span></div>
 <div id="moodResults" class="results"></div>
+</div>
 </section>
 </main>
-
+<footer class="site-footer">
+<a class="footer-brand" href="index.html">music<span>lab</span><i>.</i></a>
+<span>MADE FOR THE LOVE OF LISTENING</span>
+<a href="index.html#features">BACK TO THE LAB ↑</a>
+</footer>
 <script src="script.js"></script>
 </body>
 </html>

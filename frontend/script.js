@@ -1,7 +1,7 @@
 const API = "https://music-lab-backend-v21n.onrender.com";
 
 function showMessage(element, message) {
-    element.innerHTML = `<p>${message}</p>`;
+    element.innerHTML = `<p class="status-message">${message}</p>`;
 }
 
 async function discoverSong() {
@@ -17,10 +17,7 @@ async function discoverSong() {
     showMessage(results, "Finding songs that match your taste...");
 
     try {
-        const response = await fetch(
-            `${API}/api/recommend?song=${encodeURIComponent(song)}`
-        );
-
+        const response = await fetch(`${API}/api/recommend?song=${encodeURIComponent(song)}`);
         const data = await response.json();
 
         if (!response.ok || data.length === 0) {
@@ -30,13 +27,15 @@ async function discoverSong() {
 
         results.innerHTML = data.map((song, index) => `
             <div class="result">
+                <span class="result-rank">${String(index + 1).padStart(2, "0")}</span>
                 <div class="result-info">
-                    <strong>${String(index + 1).padStart(2, "0")} &nbsp; ${song.track_name}</strong>
+                    <strong>${song.track_name}</strong>
                     <span>${song.artists} · ${song.track_genre}</span>
                 </div>
-                <span class="result-score">${song.similarity}% match</span>
+                <span class="result-score">${song.similarity}%<small>MATCH</small></span>
             </div>
         `).join("");
+
     } catch {
         showMessage(results, "Could not connect to Music Lab.");
     }
@@ -52,13 +51,10 @@ async function getDNA() {
         return;
     }
 
-    showMessage(results, "Analyzing song...");
+    showMessage(results, "Analysing the track...");
 
     try {
-        const response = await fetch(
-            `${API}/api/dna?song=${encodeURIComponent(song)}`
-        );
-
+        const response = await fetch(`${API}/api/dna?song=${encodeURIComponent(song)}`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -75,15 +71,19 @@ async function getDNA() {
             speechiness: "Speechiness"
         };
 
-        results.innerHTML = Object.entries(labels).map(([key, label]) => `
+        results.innerHTML = Object.entries(labels).map(([key, label], i) => `
             <div class="dna-card">
-                <span>${label}</span>
-                <strong>${data[key]}%</strong>
+                <div class="dna-card-top">
+                    <span>0${i + 1}</span>
+                    <small>${label}</small>
+                </div>
+                <strong>${data[key]}<sup>%</sup></strong>
                 <div class="dna-bar">
                     <div style="width:${data[key]}%"></div>
                 </div>
             </div>
         `).join("");
+
     } catch {
         showMessage(results, "Could not connect to Music Lab.");
     }
@@ -95,26 +95,25 @@ async function getMood(mood) {
     showMessage(results, "Finding your soundtrack...");
 
     try {
-        const response = await fetch(
-            `${API}/api/mood?mood=${encodeURIComponent(mood)}`
-        );
-
+        const response = await fetch(`${API}/api/mood?mood=${encodeURIComponent(mood)}`);
         const data = await response.json();
 
-        if (!data.length) {
+        if (!response.ok || !data.length) {
             showMessage(results, "No songs found.");
             return;
         }
 
-        results.innerHTML = data.map((song, index) => `
+        results.innerHTML = data.map((song, i) => `
             <div class="result">
+                <span class="result-rank">${String(i + 1).padStart(2, "0")}</span>
                 <div class="result-info">
-                    <strong>${String(index + 1).padStart(2, "0")} &nbsp; ${song.track_name}</strong>
+                    <strong>${song.track_name}</strong>
                     <span>${song.artists} · ${song.track_genre}</span>
                 </div>
-                <span class="result-score">${song.popularity} popularity</span>
+                <span class="result-score">${song.popularity}<small>POPULARITY</small></span>
             </div>
         `).join("");
+
     } catch {
         showMessage(results, "Could not connect to Music Lab.");
     }
@@ -145,12 +144,13 @@ async function loadGems() {
                             <td>${song.track_name}</td>
                             <td>${song.artists}</td>
                             <td>${song.track_genre}</td>
-                            <td>${song.popularity}</td>
+                            <td><span class="table-pill">${song.popularity}</span></td>
                         </tr>
                     `).join("")}
                 </tbody>
             </table>
         `;
+
     } catch {
         showMessage(results, "Could not connect to Music Lab.");
     }
@@ -159,7 +159,7 @@ async function loadGems() {
 async function loadEvolution() {
     const results = document.getElementById("evolutionResults");
 
-    showMessage(results, "Analyzing music trends...");
+    showMessage(results, "Analysing music trends...");
 
     try {
         const response = await fetch(`${API}/api/evolution`);
@@ -178,19 +178,20 @@ async function loadEvolution() {
                     </tr>
                 </thead>
                 <tbody>
-                    ${data.map(item => `
+                    ${data.map(x => `
                         <tr>
-                            <td>${item.track_genre}</td>
-                            <td>${item.tracks}</td>
-                            <td>${item.popularity}</td>
-                            <td>${item.energy}%</td>
-                            <td>${item.danceability}%</td>
-                            <td>${item.valence}%</td>
+                            <td>${x.track_genre}</td>
+                            <td>${x.tracks}</td>
+                            <td>${x.popularity}</td>
+                            <td>${x.energy}%</td>
+                            <td>${x.danceability}%</td>
+                            <td>${x.valence}%</td>
                         </tr>
                     `).join("")}
                 </tbody>
             </table>
         `;
+
     } catch {
         showMessage(results, "Could not connect to Music Lab.");
     }
@@ -231,15 +232,18 @@ async function compareSongs() {
 
         let html = `
             <div class="compare-header">
-                <div class="compare-song">
+                <div class="compare-song side-a">
+                    <span>SIDE A</span>
                     <h3>${data.song_one.name}</h3>
                     <p>${data.song_one.artists} · ${data.song_one.genre}</p>
-                    <p>Popularity: ${data.song_one.popularity}</p>
+                    <p class="popularity">Popularity: ${data.song_one.popularity}</p>
                 </div>
-                <div class="compare-song">
+
+                <div class="compare-song side-b">
+                    <span>SIDE B</span>
                     <h3>${data.song_two.name}</h3>
                     <p>${data.song_two.artists} · ${data.song_two.genre}</p>
-                    <p>Popularity: ${data.song_two.popularity}</p>
+                    <p class="popularity">Popularity: ${data.song_two.popularity}</p>
                 </div>
             </div>
         `;
@@ -252,17 +256,24 @@ async function compareSongs() {
                 <div class="compare-feature">
                     <div class="compare-label">
                         <span>${label}</span>
-                        <span>${one}% &nbsp; vs &nbsp; ${two}%</span>
+                        <span>${one}% <i>vs</i> ${two}%</span>
                     </div>
+
                     <div class="compare-bars">
-                        <div class="bar"><div style="width:${one}%"></div></div>
-                        <div class="bar"><div style="width:${two}%"></div></div>
+                        <div class="bar bar-a">
+                            <div style="width:${one}%"></div>
+                        </div>
+
+                        <div class="bar bar-b">
+                            <div style="width:${two}%"></div>
+                        </div>
                     </div>
                 </div>
             `;
         });
 
         results.innerHTML = html;
+
     } catch {
         showMessage(results, "Could not connect to Music Lab.");
     }
